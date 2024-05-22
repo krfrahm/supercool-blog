@@ -1,22 +1,19 @@
-const user = document.getElementById('username');
-const title = document.getElementById('entry-title');
-const entry = document.getElementById('content');
-const submitButton = document.getElementById('submit');
-const blogList = document.getElementById('blog-list');
+const blogList =document.getElementById('blog-list')
 
-const blogEntries = []; 
+const blogEntries = []
 
 function renderEntries() {
     blogList.innerHTML = '';
     
-    for (let i = 0; i < entries.length; i++) {
-      const post = entries[i];
+    for (let i = 0; i < blogEntries[0].length; i++) {
+      const post = blogEntries[0][i];
   
       const li = document.createElement('li');
+      const h2 =  document.createElement('h2')
       const p = document.createElement('p')
       const h3 = document.createElement('h3')
-      li.textContent = post.title, 
-      li.setAttribute('post', i);
+      h2.textContent = post.title, 
+      h2.setAttribute('post', i);
       p.textContent = post.entry;
       p.setAttribute ('post-content', i);
       h3.textContent = "created by" + post.user;
@@ -24,28 +21,33 @@ function renderEntries() {
 
   
       blogList.appendChild(li);
+      blogList.appendChild(h2);
       blogList.appendChild(p);
       blogList.appendChild(h3);
     }
   }
-  
-  function getEntries () {
-   //blogEntries = localStorage.getItem('entries')
-    
 
-    blogEntries.push(entries)
-console.log(blogEntries)
-}
-
-  function init() {
-   // entries.push(console)
-    
-    //localStorage.setItem('entries', JSON.stringify(entries));
-   //JSON.parse(localStorage.getItem('entries'));
+  window.onload = function () {
+    let storage = localStorage.getItem('entries')
+    let entries = JSON.parse(storage);
    
-   getEntries(); 
-   //renderEntries();
+    blogEntries.push(entries)
+    console.log(blogEntries[0])
+
+    storeEntries()
+    renderEntries()
   }
+
+  function storeEntries(){
+    localStorage.setItem('blogEntries', JSON.stringify(blogEntries)); 
+  }
+
+  // function init( ){
+  //   var entries = localStorage.getItem(entries)
+  //   JSON.parse(localStorage.getItem(entries));
+  //   blogEntries.push(entries)
+  //   console.log(blogEntries)
+  // }
   
 
 document.getElementById("back").onclick = function () {

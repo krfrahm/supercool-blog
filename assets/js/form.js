@@ -6,6 +6,8 @@ const blogList =document.getElementById('blog-list')
 
 const entries = [];
 
+
+
 submitButton.addEventListener('click', function(event){
     event.preventDefault();
 
@@ -20,7 +22,6 @@ submitButton.addEventListener('click', function(event){
     entries.push(blogEntry);
 
     storeEntries();
-    
 })
 
 
@@ -33,8 +34,7 @@ submitButton.addEventListener('click', function(event){
 
 
 
-document.getElementById("submit").onclick = function () {
-   location.href = "blog.html";
-  };
+ document.getElementById("submit").onclick = function () {
+    location.href = "blog.html";};
 
 
