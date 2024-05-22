@@ -1,12 +1,15 @@
-const blogList =document.getElementById('blog-list')
+const blogList = document.getElementById('blog-list')
 
 const blogEntries = []
 
+const flatArray = [];
+
 function renderEntries() {
     blogList.innerHTML = '';
-    
-    for (let i = 0; i < blogEntries[0].length; i++) {
-      const post = blogEntries[0][i];
+    steamrollArray(blogEntries);
+
+    for (let i = 0; i < flatArray.length; i++) {
+      const post = flatArray[i];
   
       const li = document.createElement('li');
       const h2 =  document.createElement('h2')
@@ -28,20 +31,54 @@ function renderEntries() {
   }
 
   window.onload = function () {
-    let storage = localStorage.getItem('entries')
-    let entries = JSON.parse(storage);
-   
-    blogEntries.push(entries)
-    console.log(blogEntries[0])
+    let storage = localStorage.getItem('user')
+    let user = JSON.parse(storage);
 
+    blogEntries.push(user)
+
+    
     storeEntries()
+    
     renderEntries()
+
   }
+
+  // window.addEventListener("storage", () => {
+  //   // When local storage changes, dump the list to
+  //   // the console.
+  //   console.log(JSON.parse(localStorage.getItem("blogEntries")));
+  // });
 
   function storeEntries(){
-    localStorage.setItem('blogEntries', JSON.stringify(blogEntries)); 
-  }
+    if(localStorage.getItem('blogEntries') == null) { 
+      localStorage.setItem('blogEntries',JSON.stringify(blogEntries))
+     }
+     else{
+     var entries = JSON.parse(localStorage.getItem('blogEntries'));
+     entries.length=0
+     entries.push(blogEntries);
+     localStorage.setItem('entries', JSON.stringify(entries))
+    }
+ }
 
+
+     function steamrollArray(array) {
+      flatten(array);
+    
+      function flatten(array) {
+        for (var i = 0; i < array.length; i++) {
+          if (Array.isArray(array[i])) {
+            flatten(array[i]);
+          } else {
+            flatArray.push(array[i]);
+          }
+        }
+      }
+      console.log(flatArray)
+      return flatArray;
+      
+    }
+   
   // function init( ){
   //   var entries = localStorage.getItem(entries)
   //   JSON.parse(localStorage.getItem(entries));
@@ -55,4 +92,3 @@ document.getElementById("back").onclick = function () {
 };
 
 
-  

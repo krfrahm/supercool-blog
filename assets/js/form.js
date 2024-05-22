@@ -29,12 +29,20 @@ submitButton.addEventListener('click', function(event){
 
   function storeEntries() {
    
-    localStorage.setItem('entries', JSON.stringify(entries));
-  }
+    if(localStorage.getItem('entries') == null) { 
+      localStorage.setItem('entries',JSON.stringify(entries))
+     }
+     else{
+       var newArray = JSON.parse(localStorage.getItem("entries"));
+       newArray.push(entries);
+       localStorage.setItem("user", JSON.stringify(newArray))
+     }
+    
+}
 
 
 
  document.getElementById("submit").onclick = function () {
-    location.href = "blog.html";};
+   location.href = "blog.html";};
 
 
