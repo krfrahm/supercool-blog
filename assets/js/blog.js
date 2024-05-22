@@ -30,18 +30,27 @@ function renderEntries() {
     }
   }
 
+  
+  if(localStorage.getItem('user') == null){
+  window.onload = function () {
+    let storage = localStorage.getItem('entries')
+    let user = JSON.parse(storage);
+
+    blogEntries.push(user)
+    
+    storeEntries()
+    renderEntries()
+  }
+}else{
   window.onload = function () {
     let storage = localStorage.getItem('user')
     let user = JSON.parse(storage);
 
     blogEntries.push(user)
-
     
     storeEntries()
-    
     renderEntries()
-
-  }
+}}
 
   // window.addEventListener("storage", () => {
   //   // When local storage changes, dump the list to
