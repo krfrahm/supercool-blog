@@ -5,14 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Supercool Blog</title>
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/form.css">
 </head>
 
 <body>
+  <div class="container dark"> 
     <header>
         <h1>Welcome to my Super Cool Blog</h1>
+        
     </header>
     <div>
-        <form method="POST">
+        <form method="POST" class="form">
             <ul>
             <li class="input-group">
               <label for="username">Username</label>
@@ -28,11 +32,23 @@
             </li>
         </ul>
         <button id="submit">Submit</button>
-
-        <div class="blog">
-            <h2>Blog Entries</h2>
-            <ul id="blog-list"></ul>
-        </div>
     </div>
+    <footer>
+      <h3>Developed by Kelsey Frahm</h3>
+      <p><a href="https://github.com/krfrahm">Github Link</a></p>
+      <div class="row toggle">
+        <div class="col">
+          <p>🌒</p>
+        </div>
+        <label class="switch col">
+          <input type="checkbox" id="theme-switcher">
+          <span class="slider round"></span>
+        </label>
+        <div class="col">
+          <p>☀️</p>
+        </div>
+      </div>
+    </footer>
+    <script src="./assets/js/logic.js"></script>
     <script src="./assets/js/form.js"></script>
 </body>

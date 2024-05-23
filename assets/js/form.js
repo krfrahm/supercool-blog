@@ -21,7 +21,10 @@ submitButton.addEventListener('click', function(event){
     
     entries.push(blogEntry);
 
+    checkField();
     storeEntries();
+    document.getElementById('submit').onclick = function () {
+      location.href = 'blog.html';};
 })
 
 
@@ -33,16 +36,33 @@ submitButton.addEventListener('click', function(event){
       localStorage.setItem('entries',JSON.stringify(entries))
      }
      else{
-       var newArray = JSON.parse(localStorage.getItem("entries"));
+       var newArray = JSON.parse(localStorage.getItem('entries'));
        newArray.push(entries);
-       localStorage.setItem("user", JSON.stringify(newArray))
+       localStorage.setItem('user', JSON.stringify(newArray))
      }
     
 }
 
 
+function checkField(){
+  var userEl = user.value;
+  while (userEl==''){
+    alert('Username needed');
+  return false;
+  }
 
- document.getElementById("submit").onclick = function () {
-   location.href = "blog.html";};
+  var titleEl = title.value;
+  while (titleEl==''){
+    alert('Title Needed');
+  return false;
+  }
+
+  var entryEl = entry.value;
+  while (entryEl==''){
+    alert('Content Needed');
+  return false;
+  }
+ }
+ 
 
 

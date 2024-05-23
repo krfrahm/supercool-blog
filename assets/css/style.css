@@ -1,22 +1,33 @@
-    .toggle {
+:root{
+  --pink: #E9ADFF;
+  --lav: #B3ADFF;
+  --cream: #FFFCAD;
+  --brown: #807E4F;
+  --purple: #724F80;
+  --dkpurple: #534F80;
+}
+
+    /* .toggle {
     border-style: outset;
-    width: 400px;
-    background-color: rgba(76, 175, 80, 0.15)
-  }
+    width: 200px;
+    background-color: rgba(76, 175, 80, 0.15);
+    display: flex;
+  } */
   
-  /* Dark Mode */
   .dark {
-    background-color:#243447;
-    height: 100vh;
-    color: #bebebe
-   
+    background-color: var(--dkpurple);
+    color: var(--brown);
+    min-height: 100vh;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   
-  /* Light Mode */
   .light {
-    background-color: #f0ead6;
-    color: black;
-    height: 100vh;
+    background-color:var(--cream);
+    color: var(--dkpurple);
+    min-height: 100vh;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   
   /* Styling the Switch button */
@@ -47,7 +58,7 @@
     transition: .4s;
   }
   
-  .slider:before {
+  /* .slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -57,7 +68,7 @@
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
+  } */
   
   input:checked + .slider {
     background-color: rgb(29, 128, 210);
@@ -67,13 +78,6 @@
     box-shadow: 0 0 1px rgb(29, 128, 210);
   }
   
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
   }

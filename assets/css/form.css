@@ -1,0 +1,73 @@
+:root{
+    --pink: #E9ADFF;
+    --lav: #B3ADFF;
+    --cream: #FFFCAD;
+    --brown: #807E4F;
+    --purple: #724F80;
+    --dkpurple: #534F80;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+  }
+
+footer {
+   display: flex;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   justify-content: space-between;
+   /* flex-direction: column; */
+}
+
+
+header h1 {
+    align-items: center;
+
+}
+
+label, input {
+    display: flex;
+    flex-direction: column;
+}
+
+.dark header {
+    background-color: var(--purple);
+}
+
+.dark footer {
+    background-color: var(--purple);
+}
+
+.light header {
+    background-color: var(--brown);
+}
+
+.light footer {
+    background-color: var(--brown);
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    border-style: outset;
+    background-color: bisque;
+    color: #243447;
+    padding:20px;
+    width: 33%px;
+    margin-left: 33%;
+    margin-right: 33%;
+    font-size: larger;
+}
+
+.form button {
+    display: flex;
+    align-self: end;
+    
+}
+.form li {
+    list-style: none;
+}
+
