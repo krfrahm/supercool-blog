@@ -23,11 +23,11 @@ submitButton.addEventListener('click', function(event){
 
     checkField();
     storeEntries();
-    document.getElementById('submit').onclick = function () {
-      location.href = 'blog.html';};
+    
 })
 
-
+document.getElementById('submit').onclick = function () {
+  location.href = 'blog.html';};
   
 
   function storeEntries() {
@@ -46,19 +46,19 @@ submitButton.addEventListener('click', function(event){
 
 function checkField(){
   var userEl = user.value;
-  while (userEl==''){
+  if (userEl==''){
     alert('Username needed');
   return false;
   }
 
   var titleEl = title.value;
-  while (titleEl==''){
+  if (titleEl==''){
     alert('Title Needed');
   return false;
   }
 
   var entryEl = entry.value;
-  while (entryEl==''){
+  if (entryEl==''){
     alert('Content Needed');
   return false;
   }
